@@ -1,4 +1,5 @@
 import pygame
+import Constants
 
 
 class Screen():
@@ -8,23 +9,25 @@ class Screen():
     def handle_event(self, event):
         pass
 
-    def Screen_Size(self, window):
+    def screen_size(self, window):
         pygame.display.get_desktop_sizes()
 
     def update(self):
         pass
 
-    def draw(self, window, Screen_Size):
+    def draw(self, window, screen_size):
         pass
 
 
-class Start_Screen(Screen):
-    pass
+class StartScreen(Screen):
+    StartScreen = pygame.display.get_desktop_sizes()
+    StartScreen.fill(Constants.WHITE)
+    pygame.display.flip()
 
 
 class Leaderboard(Screen):
     pass
 
 
-class Pause_Menu(Screen):
+class PauseMenu(Screen):
     pass

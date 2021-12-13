@@ -11,7 +11,7 @@ class Main():
         self.running = True
         self.window = pygame.display.set_mode(Screens.Screen_Size)
         # add game screen
-        self.clock = pygame.time.Clock()
+        self.clock = pygame.time.Clock(Constants.FPS)
 
     def handle_events(self):
         # check input
