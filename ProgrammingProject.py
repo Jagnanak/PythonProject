@@ -1,7 +1,6 @@
 import pygame
-
-BLACK: (0, 0, 0)
-
+import Screens
+import Constants
 
 class Main():
     def __init__(self):
@@ -10,7 +9,7 @@ class Main():
         self.Screens = None
         pygame.init()
         self.running = True
-        self.window = pygame.display.set_mode(300, 300)
+        self.window = pygame.display.set_mode(Screens.Screen_Size)
         # add game screen
         self.clock = pygame.time.Clock()
 
