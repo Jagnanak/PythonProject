@@ -1,15 +1,17 @@
 import pygame
-import screens
 
-BLACK: (0,0,0)
+BLACK: (0, 0, 0)
+
 
 class Main():
     def __init__(self):
         # initialise game
+        self.screen = None
+        self.Screens = None
         pygame.init()
         self.running = True
-        self.window = pygame.display.set_mode(300,300)
-        self.screen = screens.Game_screen()
+        self.window = pygame.display.set_mode(300, 300)
+        # add game screen
         self.clock = pygame.time.Clock()
 
     def handle_events(self):
@@ -19,10 +21,10 @@ class Main():
             # if quit
             if event.type == pygame.QUIT:
                 self.running = False
-            self.screen.handle_event(event)
+            self.Screens.handle_event(event)
 
     def update(self):
-        self.screen.update()
+        self.Screens.update()
 
     def draw(self):
         self.screen.draw(self.window)
@@ -36,6 +38,7 @@ class Main():
             self.draw()
             self.clock.tick(60)
         pygame.quit()
+
 
 if __name__ == "__main__":
     game = Main()
