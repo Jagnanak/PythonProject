@@ -2,15 +2,16 @@ import pygame
 import Constants
 
 
-class Screen():
+def screen_size(window):
+    pygame.display.get_desktop_sizes()
+
+
+class Screen:
     def __init__(self):
         pass
 
     def handle_event(self, event):
         pass
-
-    def screen_size(self, window):
-        pygame.display.get_desktop_sizes()
 
     def update(self):
         pass
