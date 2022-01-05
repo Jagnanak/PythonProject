@@ -26,3 +26,10 @@ class Player(Sprite):
 
     def reset(self):
         pass
+
+
+class Enemy(Sprite):
+    def __init__(self):
+        super().__init__()
+        # Add enemy image
+        self.rect = self.image.get_rect()
