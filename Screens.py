@@ -26,8 +26,12 @@ class StartScreen(Screen):
 
 
 class Leaderboard(Screen):
-    pass
+    Leaderboard = pygame.display.get_desktop_sizes()
+    Leaderboard.fill(Constants.WHITE)
+    pygame.display.flip()
 
 
 class PauseMenu(Screen):
-    pass
+    PauseMenu = pygame.display.get_desktop_sizes()
+    PauseMenu.fill(Constants.WHITE)
+    pygame.display.flip()
