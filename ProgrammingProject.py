@@ -40,6 +40,6 @@ class Main():
         pygame.quit()
 
 
-if __name__ == "__main__":
-    game = Main()
-    game.gameloop()
+#if __name__ == "__main__":
+    #game = Main()
+    #game.gameloop()
