@@ -26,7 +26,7 @@ class Main():
         self.Screens.update()
 
     def draw(self):
-        self.screen.draw(self.window)
+        self.Screens.draw(self.window)
         pygame.display.flip()
 
     def gameloop(self):
@@ -35,7 +35,7 @@ class Main():
             self.handle_events()
             self.update()
             self.draw()
-            self.clock.tick(60)
+            self.clock.tick(Constants.FPS)
         pygame.quit()
 
 
