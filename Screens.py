@@ -3,7 +3,7 @@ import Constants
 
 
 def screen_size(window):
-    pygame.display.get_desktop_sizes()
+    Constants.SIZE
 
 
 class Screen:
@@ -21,18 +21,12 @@ class Screen:
 
 
 class StartScreen(Screen):
-    StartScreen = pygame.display.get_desktop_sizes()
-    StartScreen.fill(Constants.WHITE)
-    pygame.display.flip()
-
+    StartScreen = pygame.display.set_mode(Constants.SIZE)
 
 class Leaderboard(Screen):
-    Leaderboard = pygame.display.get_desktop_sizes()
-    Leaderboard.fill(Constants.WHITE)
-    pygame.display.flip()
+    pass
+
 
 
 class PauseMenu(Screen):
-    PauseMenu = pygame.display.get_desktop_sizes()
-    PauseMenu.fill(Constants.WHITE)
-    pygame.display.flip()
+    pass

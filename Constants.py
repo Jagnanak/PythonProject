@@ -11,4 +11,4 @@ BLUE = (0, 0, 255)
 FPS = 60
 
 # screen_size
-SIZE = pygame.display.get_desktop_sizes()
+SIZE = (1000, 800)
