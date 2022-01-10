@@ -39,7 +39,3 @@ class Main():
             self.clock.tick(Constants.FPS)
         pygame.quit()
 
-
-#if __name__ == "__main__":
-    #game = Main()
-    #game.gameloop()
