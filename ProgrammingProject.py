@@ -3,9 +3,6 @@ import Screens
 import Constants
 
 
-# import Entities
-
-
 class Main:
     def __init__(self):
         # initialise game
