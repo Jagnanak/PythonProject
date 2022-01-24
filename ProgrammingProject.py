@@ -1,18 +1,18 @@
 import pygame
-# import Screens
+import Screens
 import Constants
+
+
 # import Entities
 
 
 class Main:
     def __init__(self):
         # initialise game
-        self.screen = None
-        self.Screens = None
         pygame.init()
         self.running = True
+        self.Screens = Screens.StartScreen()
         self.window = pygame.display.set_mode(Constants.SIZE)
-        # add game screen
         self.clock = pygame.time.Clock()
 
     def handle_events(self):
@@ -38,4 +38,9 @@ class Main:
             self.update()
             self.draw()
             self.clock.tick(Constants.FPS)
+            print(self.running)
         pygame.quit()
+
+
+main = Main()
+main.game_loop()
