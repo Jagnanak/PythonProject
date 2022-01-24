@@ -1,4 +1,3 @@
-import pygame
 
 # colours:
 BLACK = (0, 0, 0)

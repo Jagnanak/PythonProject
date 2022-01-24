@@ -38,8 +38,8 @@ class Main:
             self.update()
             self.draw()
             self.clock.tick(Constants.FPS)
-            #test code to check clock
-            #print(self.running)
+            # test code to check clock
+            # print(self.running)
         pygame.quit()
 
 
