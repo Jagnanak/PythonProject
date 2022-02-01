@@ -18,10 +18,11 @@ class Screen:
 
 
 # creating the screen that will show upon opening the program:
-class StartScreen(Screen):
+class StartScreen(Screen, Button):
     StartScreen = pygame.display.set_mode(Constants.SIZE)
     StartScreen.fill(Constants.WHITE)
-    pygame.draw.rect(StartScreen, Constants.BLUE, [30, 30, 30, 30])
+    button = Button()
+    # pygame.draw.rect(StartScreen, Constants.BLUE, [30, 30, 30, 30])
     pygame.display.flip()
 
 
