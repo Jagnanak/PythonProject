@@ -3,6 +3,7 @@ import Screens
 import Constants
 
 
+# main game loop:
 class Main:
     def __init__(self):
         # initialise game
@@ -25,8 +26,7 @@ class Main:
         self.Screens.update()
 
     def draw(self):
-        self.Screens.draw(self.window)
-        pygame.display.flip()
+        pass
 
     def game_loop(self):
         # game loop
@@ -35,10 +35,11 @@ class Main:
             self.update()
             self.draw()
             self.clock.tick(Constants.FPS)
-            # test code to check clock
+            # test code to check clock:
             # print(self.running)
         pygame.quit()
 
 
+# calling the main game loop
 main = Main()
 main.game_loop()

@@ -2,6 +2,7 @@ import pygame
 import Constants
 
 
+# parent class that all other screen will inherit from
 class Screen:
     def __init__(self):
         pass
@@ -16,9 +17,11 @@ class Screen:
         pass
 
 
+# creating the screen that will show upon opening the program:
 class StartScreen(Screen):
     StartScreen = pygame.display.set_mode(Constants.SIZE)
     StartScreen.fill(Constants.WHITE)
+    pygame.draw.rect(StartScreen, Constants.BLUE, [30, 30, 30, 30])
     pygame.display.flip()
 
 

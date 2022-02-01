@@ -1,7 +1,8 @@
 import pygame
-import Constants
+# import Constants
 
 
+# character parent class
 class Sprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -14,6 +15,7 @@ class Sprite(pygame.sprite.Sprite):
         pass
 
 
+# player character
 class Player(Sprite):
     def __init__(self):
         super().__init__()
@@ -28,6 +30,7 @@ class Player(Sprite):
         pass
 
 
+# enemy character
 class Enemy(Sprite):
     def __init__(self):
         super().__init__()
