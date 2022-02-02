@@ -29,6 +29,7 @@ class StartScreen(Screen):
                 quit()
             pos = pygame.mouse.get_pos()
             Ypos = 90
+            # drawing 3 buttons
             for i in range(3):
                 if Ypos < pos[1] < Ypos + 150 and 600 < pos[0] < 900:
                     pygame.draw.rect(StartScreen, Constants.RED, [Constants.Xpos, Ypos, Constants.Bwidth, Constants.Bheight])
@@ -39,17 +40,16 @@ class StartScreen(Screen):
             pygame.display.flip()
     pygame.display.flip()
 
-# if needed
-    # Ypos = 150
-    # for i in range(3):
-    # Ypos = Ypos + 200
-
 
 class MainGame(Screen):
     pass
 
 
 class Leaderboard(Screen):
+    pass
+
+
+class Tutorial(Screen):
     pass
 
 
