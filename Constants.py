@@ -11,3 +11,8 @@ FPS = 60
 
 # screen_size
 SIZE = (1000, 800)
+
+# Button positions
+Xpos = 600
+Bwidth = 300
+Bheight = 150

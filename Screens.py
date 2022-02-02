@@ -21,7 +21,10 @@ class Screen:
 class StartScreen(Screen):
     StartScreen = pygame.display.set_mode(Constants.SIZE)
     StartScreen.fill(Constants.WHITE)
-    # pygame.draw.rect(StartScreen, Constants.BLUE, [30, 30, 30, 30])
+    Ypos = 150
+    for i in range(3):
+        pygame.draw.rect(StartScreen, Constants.BLUE, [Constants.Xpos, Ypos, Constants.Bwidth, Constants.Bheight])
+        Ypos = Ypos + 200
     pygame.display.flip()
 
 
