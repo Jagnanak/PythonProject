@@ -28,10 +28,14 @@ class StartScreen(Screen):
             if event.type == pygame.QUIT:
                 quit()
             pos = pygame.mouse.get_pos()
-            if 90 < pos[1] < 260 and 600 < pos[0] < 900:
-                pygame.draw.rect(StartScreen, Constants.RED, [Constants.Xpos, 90, Constants.Bwidth, Constants.Bheight])
-            else:
-                pygame.draw.rect(StartScreen, Constants.BLUE, [Constants.Xpos, 90, Constants.Bwidth, Constants.Bheight])
+            Ypos = 90
+            for i in range(3):
+                if Ypos < pos[1] < Ypos + 150 and 600 < pos[0] < 900:
+                    pygame.draw.rect(StartScreen, Constants.RED, [Constants.Xpos, Ypos, Constants.Bwidth, Constants.Bheight])
+                    Ypos = Ypos + 200
+                else:
+                    pygame.draw.rect(StartScreen, Constants.BLUE, [Constants.Xpos, Ypos, Constants.Bwidth, Constants.Bheight])
+                    Ypos = Ypos + 200
             pygame.display.flip()
     pygame.display.flip()
 
