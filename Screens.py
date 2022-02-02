@@ -19,13 +19,26 @@ class Screen:
 
 # creating the screen that will show upon opening the program:
 class StartScreen(Screen):
+    start = True
     StartScreen = pygame.display.set_mode(Constants.SIZE)
     StartScreen.fill(Constants.WHITE)
-    Ypos = 150
-    for i in range(3):
-        pygame.draw.rect(StartScreen, Constants.BLUE, [Constants.Xpos, Ypos, Constants.Bwidth, Constants.Bheight])
-        Ypos = Ypos + 200
+    # button code:
+    while start:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+            pos = pygame.mouse.get_pos()
+            if 90 < pos[1] < 260 and 600 < pos[0] < 900:
+                pygame.draw.rect(StartScreen, Constants.RED, [Constants.Xpos, 90, Constants.Bwidth, Constants.Bheight])
+            else:
+                pygame.draw.rect(StartScreen, Constants.BLUE, [Constants.Xpos, 90, Constants.Bwidth, Constants.Bheight])
+            pygame.display.flip()
     pygame.display.flip()
+
+# if needed
+    # Ypos = 150
+    # for i in range(3):
+    # Ypos = Ypos + 200
 
 
 class MainGame(Screen):
