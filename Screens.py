@@ -42,7 +42,11 @@ class StartScreen(Screen):
 
 
 class MainGame(Screen):
-    pass
+    pos = pygame.mouse.get_pos()
+    if 90 < pos[1] < 90 + 150 and 600 < pos[0] < 900 and pygame.MOUSEBUTTONDOWN == True:
+        StartScreen = pygame.display.set_mode(Constants.SIZE)
+        StartScreen.fill(Constants.BLUE)
+        pygame.display.flip()
 
 
 class Leaderboard(Screen):
