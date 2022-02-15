@@ -32,21 +32,26 @@ class StartScreen(Screen):
             # drawing 3 buttons
             for i in range(3):
                 if Ypos < pos[1] < Ypos + 150 and 600 < pos[0] < 900:
-                    pygame.draw.rect(StartScreen, Constants.RED, [Constants.Xpos, Ypos, Constants.Bwidth, Constants.Bheight])
+                    pygame.draw.rect(StartScreen, Constants.RED, [Constants.Xpos, Ypos, Constants.Bwidth,
+                                                                  Constants.Bheight])
                     Ypos = Ypos + 200
                 else:
-                    pygame.draw.rect(StartScreen, Constants.BLUE, [Constants.Xpos, Ypos, Constants.Bwidth, Constants.Bheight])
+                    pygame.draw.rect(StartScreen, Constants.BLUE, [Constants.Xpos, Ypos, Constants.Bwidth,
+                                                                   Constants.Bheight])
                     Ypos = Ypos + 200
             pygame.display.flip()
     pygame.display.flip()
 
 
 class MainGame(Screen):
-    pos = pygame.mouse.get_pos()
-    if 90 < pos[1] < 90 + 150 and 600 < pos[0] < 900 and pygame.MOUSEBUTTONDOWN == True:
-        StartScreen = pygame.display.set_mode(Constants.SIZE)
-        StartScreen.fill(Constants.BLUE)
-        pygame.display.flip()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+            pos = pygame.mouse.get_pos()
+            if 90 < pos[1] < 90 + 150 and 600 < pos[0] < 900 and event.type == pygame.MOUSEBUTTONDOWN:
+                MainScreen = pygame.display.set_mode(Constants.SIZE)
+                MainScreen.fill(Constants.BLUE)
 
 
 class Leaderboard(Screen):
