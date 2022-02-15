@@ -52,6 +52,8 @@ class MainGame(Screen):
             if 90 < pos[1] < 90 + 150 and 600 < pos[0] < 900 and event.type == pygame.MOUSEBUTTONDOWN:
                 MainScreen = pygame.display.set_mode(Constants.SIZE)
                 MainScreen.fill(Constants.BLUE)
+                pygame.mouse.set_visible(False)
+                pygame.display.flip()
 
 
 class Leaderboard(Screen):
