@@ -62,7 +62,7 @@ class MainGame(Screen):
         self.player.update()
 
     def draw(self, window):
-        window.fill(Constants.BLUE)
+        window.fill(Constants.LIGHT_GREY)
         self.player.draw(window)
 
 
