@@ -29,6 +29,10 @@ class StartScreen(Screen):
         pos = pygame.mouse.get_pos()
         if 90 < pos[1] < 90 + 150 and 600 < pos[0] < 900 and event.type == pygame.MOUSEBUTTONDOWN:
             self.nextScreen = MainGame()
+        elif 290 < pos[1] < 290 + 150 and 600 < pos[0] < 900 and event.type == pygame.MOUSEBUTTONDOWN:
+            self.nextScreen = Leaderboard()
+        elif 490 < pos[1] < 490 + 150 and 600 < pos[0] < 900 and event.type == pygame.MOUSEBUTTONDOWN:
+            self.nextScreen = Tutorial()
 
     def update(self):
         pass
@@ -70,10 +74,29 @@ class Leaderboard(Screen):
     def __init__(self):
         super().__init__()
 
+    def handle_event(self, event):
+        if event.type == pygame.QUIT:
+            quit()
+
+    def update(self):
+        pass
+
+    def draw(self, window):
+        window.fill(Constants.RED)
 
 class Tutorial(Screen):
     def __init__(self):
         super().__init__()
+
+    def handle_event(self, event):
+        if event.type == pygame.QUIT:
+            quit()
+
+    def update(self):
+        pass
+
+    def draw(self, window):
+        window.fill(Constants.BLUE)
 
 
 class PauseMenu(Screen):
