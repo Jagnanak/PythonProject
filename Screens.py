@@ -84,6 +84,7 @@ class Leaderboard(Screen):
     def draw(self, window):
         window.fill(Constants.RED)
 
+
 class Tutorial(Screen):
     def __init__(self):
         super().__init__()
