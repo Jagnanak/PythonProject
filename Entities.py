@@ -1,4 +1,6 @@
 import pygame
+
+
 # import Constants
 
 
@@ -20,11 +22,14 @@ class Player(Sprite):
     def __init__(self):
         super().__init__()
         # add player image
+        self.image = pygame.Surface((10, 10))
         # self.image = pygame.image.load().convert()
         self.rect = self.image.get_rect()
 
     def update(self):
-        pass
+        print(3)
+        # self.rect = self.rect.move(10,1)
+        self.rect.x = self.rect.x + 1
 
     def reset(self):
         pass

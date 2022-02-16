@@ -9,7 +9,7 @@ class Main:
         # initialise game
         pygame.init()
         self.running = True
-        self.Screens = Screens.StartScreen()
+        self.screen = Screens.StartScreen()
         self.window = pygame.display.set_mode(Constants.SIZE)
         self.clock = pygame.time.Clock()
 
@@ -20,20 +20,23 @@ class Main:
             # if quit
             if event.type == pygame.QUIT:
                 self.running = False
-            self.Screens.handle_event(event)
+            self.screen.handle_event(event)
 
     def update(self):
-        self.Screens.update()
+        self.screen.update()
 
     def draw(self):
-        pass
+        self.screen.draw(self.window)
 
     def game_loop(self):
         # game loop
         while self.running:
+            if self.screen.nextScreen != None:
+                self.screen = self.screen.nextScreen
             self.handle_events()
             self.update()
             self.draw()
+            pygame.display.flip()
             self.clock.tick(Constants.FPS)
             # test code to check clock:
             # print(self.running)
