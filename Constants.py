@@ -11,9 +11,9 @@ LIGHT_GREY = (211, 211, 211)
 FPS = 60
 
 # screen_size
-SIZE = (1000, 800)
+SIZE = (1300, 800)
 
 # Button 1 positions
-Xpos = 600
+Xpos = 900
 Bwidth = 300
 Bheight = 150

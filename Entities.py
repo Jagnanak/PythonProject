@@ -28,8 +28,9 @@ class Player(Sprite):
 
     def update(self):
         print(3)
-        # self.rect = self.rect.move(10,1)
-        self.rect.x = self.rect.x + 1
+        self.rect = self.rect.move(10, 10)
+        # potential player movement code
+        # self.rect.x = self.rect.y + 1
 
     def reset(self):
         pass
