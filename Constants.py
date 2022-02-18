@@ -5,7 +5,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
-LIGHT_GREY = (211, 211, 211)
+LIGHTGREY = (211, 211, 211)
 
 # FPS
 FPS = 60
@@ -14,6 +14,12 @@ FPS = 60
 SIZE = (1300, 800)
 
 # Button 1 positions
-Xpos = 900
-Bwidth = 300
-Bheight = 150
+X1pos = 900
+B1width = 300
+B1height = 150
+
+# Button 2 positions
+X2pos = 20
+Y2pos = 20
+B2width = 60
+B2height = 40

@@ -28,7 +28,16 @@ class Player(Sprite):
 
     def update(self):
         print(3)
-        self.rect = self.rect.move(10, 10)
+        # moving the player
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_SPACE]:
+            self.rect = self.rect.move(0, 10)
+        elif keys[pygame.K_DOWN]:
+            self.rect = self.rect.move(0, 10)
+        elif keys[pygame.K_RIGHT]:
+            self.rect = self.rect.move(10, 0)
+        elif keys[pygame.K_LEFT]:
+            self.rect = self.rect.move(0 - 10, 0)
         # potential player movement code
         # self.rect.x = self.rect.y + 1
 
