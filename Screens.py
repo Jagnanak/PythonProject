@@ -77,6 +77,9 @@ class Leaderboard(Screen):
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             quit()
+        pos = pygame.mouse.get_pos()
+        if 20 < pos[1] < 60 and 20 < pos[0] < 80 and event.type == pygame.MOUSEBUTTONDOWN:
+            self.nextScreen = StartScreen()
 
     def update(self):
         pass
