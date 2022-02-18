@@ -50,6 +50,7 @@ class StartScreen(Screen):
                 pygame.draw.rect(window, Constants.BLUE, [Constants.X1pos, Ypos, Constants.B1width,
                                                           Constants.B1height])
             Ypos = Ypos + 200
+        # drawing text on the buttons
 
 
 class MainGame(Screen):
