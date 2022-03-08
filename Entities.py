@@ -22,7 +22,7 @@ class Player(Sprite):
     def __init__(self):
         super().__init__()
         # add player image
-        self.image = pygame.Surface((10, 10))
+        self.image = pygame.Surface((35, 35))
         # self.image = pygame.image.load().convert()
         self.rect = self.image.get_rect()
 
@@ -30,14 +30,14 @@ class Player(Sprite):
         print(3)
         # moving the player
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_SPACE]:
-            self.rect = self.rect.move(0, 10)
+        if keys[pygame.K_UP]:
+            self.rect = self.rect.move(0, -10)
         elif keys[pygame.K_DOWN]:
             self.rect = self.rect.move(0, 10)
         elif keys[pygame.K_RIGHT]:
             self.rect = self.rect.move(10, 0)
         elif keys[pygame.K_LEFT]:
-            self.rect = self.rect.move(0 - 10, 0)
+            self.rect = self.rect.move(-10, 0)
         # potential player movement code
         # self.rect.x = self.rect.y + 1
 
