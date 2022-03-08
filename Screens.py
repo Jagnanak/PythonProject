@@ -50,7 +50,28 @@ class StartScreen(Screen):
                 pygame.draw.rect(window, Constants.BLUE, [Constants.X1pos, Ypos, Constants.B1width,
                                                           Constants.B1height])
             Ypos = Ypos + 200
+
         # drawing text on the buttons
+        # start button text
+        font = pygame.font.Font('freesansbold.ttf', 64)
+        text = font.render('START', True, Constants.BLACK)
+        text_rect = text.get_rect()
+        text_rect.center = (1050, 170)
+        window.blit(text, text_rect)
+
+        # leaderboard button text
+        font = pygame.font.Font('freesansbold.ttf', 35)
+        text = font.render('LEADERBOARD', True, Constants.BLACK)
+        text_rect = text.get_rect()
+        text_rect.center = (1050, 370)
+        window.blit(text, text_rect)
+
+        # tutorial button text
+        font = pygame.font.Font('freesansbold.ttf', 50)
+        text = font.render('TUTORIAL', True, Constants.BLACK)
+        text_rect = text.get_rect()
+        text_rect.center = (1050, 570)
+        window.blit(text, text_rect)
 
 
 class MainGame(Screen):
@@ -87,8 +108,15 @@ class Leaderboard(Screen):
 
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
+        # back button
         pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
                                                    Constants.B2height])
+        # back button text
+        font = pygame.font.Font('freesansbold.ttf', 16)
+        text = font.render('BACK', True, Constants.WHITE)
+        text_rect = text.get_rect()
+        text_rect.center = (50, 40)
+        window.blit(text, text_rect)
 
 
 class Tutorial(Screen):
@@ -107,8 +135,15 @@ class Tutorial(Screen):
 
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
+        # back button
         pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
                                                    Constants.B2height])
+        # back button text
+        font = pygame.font.Font('freesansbold.ttf', 16)
+        text = font.render('BACK', True, Constants.WHITE)
+        text_rect = text.get_rect()
+        text_rect.center = (50, 40)
+        window.blit(text, text_rect)
 
 
 class PauseMenu(Screen):
