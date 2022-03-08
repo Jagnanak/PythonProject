@@ -67,8 +67,8 @@ class StartScreen(Screen):
         window.blit(text, text_rect)
 
         # tutorial button text
-        font = pygame.font.Font('freesansbold.ttf', 50)
-        text = font.render('TUTORIAL', True, Constants.BLACK)
+        font = pygame.font.Font('freesansbold.ttf', 40)
+        text = font.render('HOW TO PLAY', True, Constants.BLACK)
         text_rect = text.get_rect()
         text_rect.center = (1050, 570)
         window.blit(text, text_rect)
@@ -78,6 +78,8 @@ class MainGame(Screen):
     def __init__(self):
         super().__init__()
         self.player = Entities.Player()
+        self.enemies = pygame.sprite.Group()
+        self.delay = 0
         pygame.mouse.set_visible(False)
 
     def handle_event(self, event):
@@ -85,11 +87,21 @@ class MainGame(Screen):
             quit()
 
     def update(self):
+        if self.delay == 15:
+            newenemy = Entities.Enemy()
+            self.enemies.add(newenemy)
+            self.delay = 0
+        else:
+            self.delay = self.delay + 1
         self.player.update()
+        self.enemies.update()
+        if pygame.sprite.spritecollide(self.player, self.enemies, True):
+            print("dead")
 
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
         self.player.draw(window)
+        self.enemies.draw(window)
 
 
 class Leaderboard(Screen):

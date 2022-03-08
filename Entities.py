@@ -1,8 +1,13 @@
+import random
+
 import pygame
 # import Constants
 
 
 # character parent class
+import Constants
+
+
 class Sprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -36,6 +41,8 @@ class Player(Sprite):
             self.rect = self.rect.move(10, 0)
         elif keys[pygame.K_LEFT]:
             self.rect = self.rect.move(-10, 0)
+        # unless it is touching a platform the sprite will move downwards
+        # self.rect = self.rect.move(0, 5)
         # potential player movement code
         # self.rect.x = self.rect.y + 1
 
@@ -47,5 +54,12 @@ class Player(Sprite):
 class Enemy(Sprite):
     def __init__(self):
         super().__init__()
+        self.image = pygame.Surface((35, 35))
+        self.image.fill((255,0,0))
         # Add enemy image
         self.rect = self.image.get_rect()
+        self.rect.x = Constants.SIZE[0]
+        self.rect.y = random.randint(0,Constants.SIZE[1])
+
+    def update(self):
+        self.rect = self.rect.move(-1,0)
