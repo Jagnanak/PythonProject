@@ -1,6 +1,4 @@
 import pygame
-
-
 # import Constants
 
 
@@ -27,7 +25,7 @@ class Player(Sprite):
         self.rect = self.image.get_rect()
 
     def update(self):
-        print(3)
+        # print(3) this is a test line
         # moving the player
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
