@@ -78,8 +78,10 @@ class MainGame(Screen):
     def __init__(self):
         super().__init__()
         self.player = Entities.Player()
+        self.platforms = pygame.sprite.Group()
         self.enemies = pygame.sprite.Group()
         self.delay = 0
+        self.delay2 = 0
         pygame.mouse.set_visible(False)
 
     def handle_event(self, event):
@@ -87,13 +89,24 @@ class MainGame(Screen):
             quit()
 
     def update(self):
-        if self.delay == 15:
-            newenemy = Entities.Enemy()
-            self.enemies.add(newenemy)
+        # randomly generating the platforms
+        if self.delay == 45:
+            newplatform = Entities.Platform()
+            self.platforms.add(newplatform)
             self.delay = 0
         else:
             self.delay = self.delay + 1
         self.player.update()
+        self.platforms.update()
+        if pygame.sprite.spritecollide(self.player, self.platforms, False):
+            print("touching")
+        # randomly generating the enemies
+        if self.delay2 == 500:
+            newenemy = Entities.Enemy()
+            self.enemies.add(newenemy)
+            self.delay2 = 0
+        else:
+            self.delay2 = self.delay2 + 1
         self.enemies.update()
         if pygame.sprite.spritecollide(self.player, self.enemies, True):
             print("dead")
@@ -101,6 +114,7 @@ class MainGame(Screen):
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
         self.player.draw(window)
+        self.platforms.draw(window)
         self.enemies.draw(window)
 
 

@@ -55,11 +55,26 @@ class Enemy(Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.Surface((35, 35))
-        self.image.fill((255,0,0))
+        self.image.fill((255, 0, 0))
         # Add enemy image
         self.rect = self.image.get_rect()
         self.rect.x = Constants.SIZE[0]
-        self.rect.y = random.randint(0,Constants.SIZE[1])
+        self.rect.y = random.randint(420, 760)
 
     def update(self):
-        self.rect = self.rect.move(-1,0)
+        self.rect = self.rect.move(-2, 0)
+
+
+# platform
+class Platform(Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.Surface((100, 30))
+        self.image.fill((0, 0, 255))
+        # Add enemy image
+        self.rect = self.image.get_rect()
+        self.rect.x = Constants.SIZE[0]
+        self.rect.y = random.randint(450, 780)
+
+    def update(self):
+        self.rect = self.rect.move(-2, 0)
