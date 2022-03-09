@@ -1,13 +1,9 @@
 import random
-
+import Constants
 import pygame
-# import Constants
 
 
 # character parent class
-import Constants
-
-
 class Sprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -65,7 +61,7 @@ class Enemy(Sprite):
         self.rect = self.rect.move(-2, 0)
 
 
-# platform
+# platforms
 class Platform(Sprite):
     def __init__(self):
         super().__init__()
