@@ -40,16 +40,16 @@ class StartScreen(Screen):
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
         pos = pygame.mouse.get_pos()
-        Ypos = 90
+        ypos = 90
         # drawing 3 buttons
         for i in range(3):
-            if Ypos < pos[1] < Ypos + 150 and 900 < pos[0] < 1200:
-                pygame.draw.rect(window, Constants.RED, [Constants.X1pos, Ypos, Constants.B1width,
+            if ypos < pos[1] < ypos + 150 and 900 < pos[0] < 1200:
+                pygame.draw.rect(window, Constants.RED, [Constants.X1pos, ypos, Constants.B1width,
                                                          Constants.B1height])
             else:
-                pygame.draw.rect(window, Constants.BLUE, [Constants.X1pos, Ypos, Constants.B1width,
+                pygame.draw.rect(window, Constants.BLUE, [Constants.X1pos, ypos, Constants.B1width,
                                                           Constants.B1height])
-            Ypos = Ypos + 200
+            ypos = ypos + 200
 
         # drawing text on the buttons
         # start button text
@@ -135,8 +135,13 @@ class Leaderboard(Screen):
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
         # back button
-        pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
-                                                   Constants.B2height])
+        pos = pygame.mouse.get_pos()
+        if 20 < pos[1] < 60 and 20 < pos[0] < 80:
+            pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
+                                                       Constants.B2height])
+        else:
+            pygame.draw.rect(window, Constants.DARKGREY, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
+                                                          Constants.B2height])
         # back button text
         font = pygame.font.Font('freesansbold.ttf', 16)
         text = font.render('BACK', True, Constants.WHITE)
@@ -162,8 +167,13 @@ class Tutorial(Screen):
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
         # back button
-        pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
-                                                   Constants.B2height])
+        pos = pygame.mouse.get_pos()
+        if 20 < pos[1] < 60 and 20 < pos[0] < 80:
+            pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
+                                                       Constants.B2height])
+        else:
+            pygame.draw.rect(window, Constants.DARKGREY, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
+                                                          Constants.B2height])
         # back button text
         font = pygame.font.Font('freesansbold.ttf', 16)
         text = font.render('BACK', True, Constants.WHITE)

@@ -6,6 +6,7 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 LIGHTGREY = (211, 211, 211)
+DARKGREY = (100, 100, 100)
 
 # FPS
 FPS = 60
