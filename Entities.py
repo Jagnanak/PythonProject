@@ -29,13 +29,13 @@ class Player(Sprite):
         # print(3) this is a test line
         # moving the player
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_w]:
             self.rect = self.rect.move(0, -10)
-        elif keys[pygame.K_DOWN]:
+        elif keys[pygame.K_s]:
             self.rect = self.rect.move(0, 10)
-        elif keys[pygame.K_RIGHT]:
+        elif keys[pygame.K_d]:
             self.rect = self.rect.move(10, 0)
-        elif keys[pygame.K_LEFT]:
+        elif keys[pygame.K_a]:
             self.rect = self.rect.move(-10, 0)
         # unless it is touching a platform the sprite will move downwards
         # self.rect = self.rect.move(0, 5)
