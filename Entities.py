@@ -2,8 +2,10 @@ import random
 import Constants
 import pygame
 
-
 # character parent class
+import Screens
+
+
 class Sprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -37,10 +39,12 @@ class Player(Sprite):
             self.rect = self.rect.move(10, 0)
         elif keys[pygame.K_a]:
             self.rect = self.rect.move(-10, 0)
+        self.rect = self.rect.move(0, 5)
         # unless it is touching a platform the sprite will move downwards
-        # self.rect = self.rect.move(0, 5)
-        # potential player movement code
-        # self.rect.x = self.rect.y + 1
+        block_hit_list = pygame.sprite.spritecollide(Screens.MainGame.__init__().player,
+                                                     Screens.MainGame.__init__().platforms, False)
+        if block_hit_list[2]:
+            self.rect = self.rect.move(0, 0)
 
     def reset(self):
         pass
@@ -51,7 +55,7 @@ class Enemy(Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.Surface((35, 35))
-        self.image.fill((255, 0, 0))
+        self.image.fill(Constants.RED)
         # Add enemy image
         self.rect = self.image.get_rect()
         self.rect.x = Constants.SIZE[0]
@@ -66,11 +70,11 @@ class Platform(Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.Surface((100, 30))
-        self.image.fill((0, 0, 255))
+        self.image.fill(Constants.BLUE)
         # Add enemy image
         self.rect = self.image.get_rect()
         self.rect.x = Constants.SIZE[0]
-        self.rect.y = random.randint(450, 780)
+        self.rect.y = random.randint(450, 770)
 
     def update(self):
         self.rect = self.rect.move(-2, 0)

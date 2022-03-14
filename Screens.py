@@ -101,7 +101,7 @@ class MainGame(Screen):
         if pygame.sprite.spritecollide(self.player, self.platforms, False):
             print("touching")
         # randomly generating the enemies
-        if self.delay2 == 500:
+        if self.delay2 == 250:
             newenemy = Entities.Enemy()
             self.enemies.add(newenemy)
             self.delay2 = 0
