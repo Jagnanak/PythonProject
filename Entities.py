@@ -1,11 +1,10 @@
 import random
 import Constants
 import pygame
-
-# character parent class
 import Screens
 
 
+# character parent class
 class Sprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -41,8 +40,8 @@ class Player(Sprite):
             self.rect = self.rect.move(-10, 0)
         self.rect = self.rect.move(0, 5)
         # unless it is touching a platform the sprite will move downwards
-        block_hit_list = pygame.sprite.spritecollide(Screens.MainGame.__init__().player,
-                                                     Screens.MainGame.__init__().platforms, False)
+        block_hit_list = pygame.sprite.spritecollide(Screens.MainGame.__init__(self).player,
+                                                     Screens.MainGame.__init__(self).platforms, False)
         if block_hit_list[2]:
             self.rect = self.rect.move(0, 0)
 
