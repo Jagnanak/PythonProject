@@ -1,3 +1,4 @@
+import platform
 import random
 import Constants
 import pygame
@@ -25,6 +26,7 @@ class Player(Sprite):
         self.image = pygame.Surface((35, 35))
         # self.image = pygame.image.load().convert()
         self.rect = self.image.get_rect()
+        self.platforms = pygame.sprite.Group()
 
     def update(self):
         # print(3) this is a test line
@@ -40,9 +42,8 @@ class Player(Sprite):
             self.rect = self.rect.move(-10, 0)
         self.rect = self.rect.move(0, 5)
         # unless it is touching a platform the sprite will move downwards
-        block_hit_list = pygame.sprite.spritecollide(Screens.MainGame.__init__(self).player,
-                                                     Screens.MainGame.__init__(self).platforms, False)
-        if block_hit_list[2]:
+        block_hit_list = pygame.sprite.spritecollide(Player(), self.platforms, False)
+        if block_hit_list[0]:
             self.rect = self.rect.move(0, 0)
 
     def reset(self):
