@@ -36,20 +36,20 @@ class Player(Sprite):
         if self.currently_jumping:
             self.jump_time = self.jump_time + 1
             print(self.jump_time)
-            if self.jump_time > 60:
+            if self.jump_time > 30:
                 self.currently_jumping = False
 
         block_hit_list = pygame.sprite.spritecollide(self, self.platforms, False)
         if block_hit_list:
-            self.rect = self.rect.move(-2, 0)
+            self.rect = self.rect.move(-3, 0)
         # print(3) this is a test line
         # moving the player
         keys = pygame.key.get_pressed()
         jump_allowed = False
-        self.rect = self.rect.move(0, 2)
+        self.rect = self.rect.move(0, 3)
         block_hit_list = pygame.sprite.spritecollide(self, self.platforms, False)
         if block_hit_list:
-            self.rect = self.rect.move(0, -2)
+            self.rect = self.rect.move(0, -3)
             jump_allowed = True
             self.jump_time = 0
 
@@ -67,9 +67,9 @@ class Player(Sprite):
             self.rect = self.rect.move(0, -ymove)
         xmove = 0
         if keys[pygame.K_d]:
-            xmove = 10
+            xmove = 8
         elif keys[pygame.K_a]:
-            xmove = -10
+            xmove = -8
         self.rect = self.rect.move(xmove, 0)
         # unless it is touching a platform the sprite will move downwards
         block_hit_list = pygame.sprite.spritecollide(self, self.platforms, False)
@@ -92,7 +92,7 @@ class Enemy(Sprite):
         self.rect.y = random.randint(420, 760)
 
     def update(self):
-        self.rect = self.rect.move(-2, 0)
+        self.rect = self.rect.move(-3, 0)
 
 
 # platforms
@@ -107,4 +107,4 @@ class Platform(Sprite):
         self.rect.y = random.randint(450, 770)
 
     def update(self):
-        self.rect = self.rect.move(-2, 0)
+        self.rect = self.rect.move(-3, 0)

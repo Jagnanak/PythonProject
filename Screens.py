@@ -79,7 +79,7 @@ class MainGame(Screen):
         super().__init__()
         self.platforms = pygame.sprite.Group()
         self.player = Entities.Player(self.platforms)
-        for i in range(10):
+        for i in range(13):
             newplatform = Entities.Platform()
             newplatform.rect.x = i*130
             self.platforms.add(newplatform)
