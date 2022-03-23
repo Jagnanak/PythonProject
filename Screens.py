@@ -77,8 +77,13 @@ class StartScreen(Screen):
 class MainGame(Screen):
     def __init__(self):
         super().__init__()
-        self.player = Entities.Player()
         self.platforms = pygame.sprite.Group()
+        self.player = Entities.Player(self.platforms)
+        for i in range(10):
+            newplatform = Entities.Platform()
+            newplatform.rect.x = i*130
+            self.platforms.add(newplatform)
+
         self.enemies = pygame.sprite.Group()
         self.delay = 0
         self.delay2 = 0
