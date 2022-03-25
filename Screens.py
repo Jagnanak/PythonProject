@@ -77,13 +77,14 @@ class StartScreen(Screen):
 class MainGame(Screen):
     def __init__(self):
         super().__init__()
+        self.score = 0
+        self.delay3 = 0
         self.platforms = pygame.sprite.Group()
         self.player = Entities.Player(self.platforms)
         for i in range(13):
             newplatform = Entities.Platform()
-            newplatform.rect.x = i*130
+            newplatform.rect.x = i * 130
             self.platforms.add(newplatform)
-
         self.enemies = pygame.sprite.Group()
         self.delay = 0
         self.delay2 = 0
@@ -104,7 +105,8 @@ class MainGame(Screen):
         self.player.update()
         self.platforms.update()
         if pygame.sprite.spritecollide(self.player, self.platforms, False):
-            print("touching")
+            pass
+            # print("touching")
 
         # randomly generating the enemies
         if self.delay2 == 250:
@@ -115,13 +117,26 @@ class MainGame(Screen):
             self.delay2 = self.delay2 + 1
         self.enemies.update()
         if pygame.sprite.spritecollide(self.player, self.enemies, True):
-            print("dead")
+            pass
+            # print("dead")
+        # score system
+        if self.delay3 == 10:
+            self.score += 1
+            # print(self.score)
+            self.delay3 = 0
+        else:
+            self.delay3 = self.delay3 + 1
 
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
         self.player.draw(window)
         self.platforms.draw(window)
         self.enemies.draw(window)
+        font = pygame.font.Font('freesansbold.ttf', 40)
+        text = font.render(str(self.score), True, Constants.BLACK)
+        text_rect = text.get_rect()
+        text_rect.center = (650, 100)
+        window.blit(text, text_rect)
 
 
 class Leaderboard(Screen):

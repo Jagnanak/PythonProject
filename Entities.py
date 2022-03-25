@@ -35,7 +35,7 @@ class Player(Sprite):
 
         if self.currently_jumping:
             self.jump_time = self.jump_time + 1
-            print(self.jump_time)
+            # print(self.jump_time)
             if self.jump_time > 30:
                 self.currently_jumping = False
 
