@@ -116,14 +116,15 @@ class MainGame(Screen):
         else:
             self.delay2 = self.delay2 + 1
         self.enemies.update()
-        if pygame.sprite.spritecollide(self.player, self.enemies, True):
-            pass
-            # print("dead")
+        # print("dead")
+
         # score system
         if self.delay3 == 10:
             self.score += 1
             # print(self.score)
             self.delay3 = 0
+            if pygame.sprite.spritecollide(self.player, self.enemies, True):
+                self.score = - 5
         else:
             self.delay3 = self.delay3 + 1
 
