@@ -93,6 +93,8 @@ class MainGame(Screen):
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             quit()
+        if self.player.rect.y > 725:
+            self.nextScreen = PauseMenu()
 
     def update(self):
         # randomly generating the platforms
@@ -127,6 +129,7 @@ class MainGame(Screen):
             self.delay3 = 0
         else:
             self.delay3 = self.delay3 + 1
+        # print(self.player.rect.y)
 
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
@@ -209,10 +212,16 @@ class PauseMenu(Screen):
         super().__init__()
 
     def handle_event(self, event):
-        pass
+        if event.type == pygame.QUIT:
+            quit()
 
     def update(self):
         pass
 
     def draw(self, window):
-        pass
+        window.fill(Constants.LIGHTGREY)
+        font = pygame.font.Font('freesansbold.ttf', 30)
+        text = font.render('You Died', True, Constants.RED)
+        text_rect = text.get_rect()
+        text_rect.center = (100, 70)
+        window.blit(text, text_rect)
