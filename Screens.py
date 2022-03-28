@@ -94,8 +94,8 @@ class MainGame(Screen):
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             quit()
-        if self.player.rect.y > 700:
-            self.nextScreen = PauseMenu()
+        if self.player.rect.y > 730:
+            self.nextScreen = DeathScreen()
 
     def update(self):
         # randomly generating the platforms
@@ -210,7 +210,7 @@ class Tutorial(Screen):
         window.blit(text, text_rect)
 
 
-class PauseMenu(Screen):
+class DeathScreen(Screen):
     def __init__(self):
         super().__init__()
         pygame.mouse.set_visible(True)
