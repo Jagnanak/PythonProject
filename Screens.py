@@ -22,6 +22,7 @@ class Screen:
 class StartScreen(Screen):
     def __init__(self):
         super().__init__()
+        pygame.mouse.set_visible(True)
 
     def handle_event(self, event):
         if event.type == pygame.QUIT:
@@ -146,6 +147,7 @@ class MainGame(Screen):
 class Leaderboard(Screen):
     def __init__(self):
         super().__init__()
+        pygame.mouse.set_visible(True)
 
     def handle_event(self, event):
         if event.type == pygame.QUIT:
@@ -178,6 +180,7 @@ class Leaderboard(Screen):
 class Tutorial(Screen):
     def __init__(self):
         super().__init__()
+        pygame.mouse.set_visible(True)
 
     def handle_event(self, event):
         if event.type == pygame.QUIT:
@@ -210,18 +213,39 @@ class Tutorial(Screen):
 class PauseMenu(Screen):
     def __init__(self):
         super().__init__()
+        pygame.mouse.set_visible(True)
 
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             quit()
+        pos = pygame.mouse.get_pos()
+        if 20 < pos[1] < 60 and 20 < pos[0] < 80 and event.type == pygame.MOUSEBUTTONDOWN:
+            self.nextScreen = StartScreen()
 
     def update(self):
         pass
 
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
+
+        # you died text
         font = pygame.font.Font('freesansbold.ttf', 30)
         text = font.render('You Died', True, Constants.RED)
         text_rect = text.get_rect()
-        text_rect.center = (100, 70)
+        text_rect.center = (150, 70)
+        window.blit(text, text_rect)
+
+        # back button
+        pos = pygame.mouse.get_pos()
+        if 20 < pos[1] < 60 and 20 < pos[0] < 80:
+            pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
+                                                       Constants.B2height])
+        else:
+            pygame.draw.rect(window, Constants.DARKGREY, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
+                                                          Constants.B2height])
+        # back button text
+        font = pygame.font.Font('freesansbold.ttf', 16)
+        text = font.render('BACK', True, Constants.WHITE)
+        text_rect = text.get_rect()
+        text_rect.center = (50, 40)
         window.blit(text, text_rect)
