@@ -109,7 +109,7 @@ class MainGame(Screen):
             # print("touching")
 
         # randomly generating the enemies
-        if self.delay2 == 250:
+        if self.delay2 == 200:
             newenemy = Entities.Enemy()
             self.enemies.add(newenemy)
             self.delay2 = 0
@@ -122,9 +122,9 @@ class MainGame(Screen):
         if self.delay3 == 10:
             self.score += 1
             # print(self.score)
-            self.delay3 = 0
             if pygame.sprite.spritecollide(self.player, self.enemies, True):
-                self.score = - 5
+                self.score = self.score - 10
+            self.delay3 = 0
         else:
             self.delay3 = self.delay3 + 1
 
