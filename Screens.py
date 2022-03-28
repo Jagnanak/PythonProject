@@ -96,6 +96,8 @@ class MainGame(Screen):
             quit()
         if self.player.rect.y > 730:
             self.nextScreen = DeathScreen()
+        elif self.player.rect.x < 0:
+            self.nextScreen = DeathScreen()
 
     def update(self):
         # randomly generating the platforms
