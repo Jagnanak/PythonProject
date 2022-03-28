@@ -94,7 +94,7 @@ class MainGame(Screen):
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             quit()
-        if self.player.rect.y > 725:
+        if self.player.rect.y > 700:
             self.nextScreen = PauseMenu()
 
     def update(self):
@@ -219,7 +219,9 @@ class PauseMenu(Screen):
         if event.type == pygame.QUIT:
             quit()
         pos = pygame.mouse.get_pos()
-        if 20 < pos[1] < 60 and 20 < pos[0] < 80 and event.type == pygame.MOUSEBUTTONDOWN:
+        if 90 < pos[1] < 90 + 150 and 900 < pos[0] < 1200 and event.type == pygame.MOUSEBUTTONDOWN:
+            self.nextScreen = MainGame()
+        elif 290 < pos[1] < 290 + 150 and 900 < pos[0] < 1200 and event.type == pygame.MOUSEBUTTONDOWN:
             self.nextScreen = StartScreen()
 
     def update(self):
@@ -227,7 +229,8 @@ class PauseMenu(Screen):
 
     def draw(self, window):
         window.fill(Constants.LIGHTGREY)
-
+        ypos = 90
+        pos = pygame.mouse.get_pos()
         # you died text
         font = pygame.font.Font('freesansbold.ttf', 30)
         text = font.render('You Died', True, Constants.RED)
@@ -235,17 +238,26 @@ class PauseMenu(Screen):
         text_rect.center = (150, 70)
         window.blit(text, text_rect)
 
-        # back button
-        pos = pygame.mouse.get_pos()
-        if 20 < pos[1] < 60 and 20 < pos[0] < 80:
-            pygame.draw.rect(window, Constants.BLACK, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
-                                                       Constants.B2height])
-        else:
-            pygame.draw.rect(window, Constants.DARKGREY, [Constants.X2pos, Constants.Y2pos, Constants.B2width,
-                                                          Constants.B2height])
-        # back button text
-        font = pygame.font.Font('freesansbold.ttf', 16)
-        text = font.render('BACK', True, Constants.WHITE)
+        for i in range(2):
+            if ypos < pos[1] < ypos + 150 and 900 < pos[0] < 1200:
+                pygame.draw.rect(window, Constants.RED, [Constants.X1pos, ypos, Constants.B1width,
+                                                         Constants.B1height])
+            else:
+                pygame.draw.rect(window, Constants.BLUE, [Constants.X1pos, ypos, Constants.B1width,
+                                                          Constants.B1height])
+            ypos = ypos + 200
+
+        # drawing text on the buttons
+        # start button text
+        font = pygame.font.Font('freesansbold.ttf', 45)
+        text = font.render('NEW GAME', True, Constants.BLACK)
         text_rect = text.get_rect()
-        text_rect.center = (50, 40)
+        text_rect.center = (1050, 170)
+        window.blit(text, text_rect)
+
+        # leaderboard button text
+        font = pygame.font.Font('freesansbold.ttf', 44)
+        text = font.render('MAIN MENU', True, Constants.BLACK)
+        text_rect = text.get_rect()
+        text_rect.center = (1050, 370)
         window.blit(text, text_rect)
