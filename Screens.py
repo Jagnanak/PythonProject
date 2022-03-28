@@ -94,10 +94,16 @@ class MainGame(Screen):
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             quit()
-        if self.player.rect.y > 730:
+        if self.player.rect.y > 750:
             self.nextScreen = DeathScreen()
         elif self.player.rect.x < 0:
             self.nextScreen = DeathScreen()
+        scores = open("scores.txt", "a")
+        scores.write(str(self.score))
+        scores.close()
+        # scores = open("scores.txt", "r")
+        # print(scores.read())
+        # scores.close()
 
     def update(self):
         # randomly generating the platforms
