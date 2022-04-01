@@ -24,3 +24,6 @@ X2pos = 20
 Y2pos = 20
 B2width = 60
 B2height = 40
+
+# Game speed
+GameSpeed = 3

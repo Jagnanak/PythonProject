@@ -134,7 +134,7 @@ class MainGame(Screen):
             self.score += 1
             # print(self.score)
             if pygame.sprite.spritecollide(self.player, self.enemies, True):
-                self.score = self.score - 10
+                self.score = self.score - 20
             self.delay3 = 0
         else:
             self.delay3 = self.delay3 + 1
