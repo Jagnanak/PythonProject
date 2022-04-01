@@ -95,9 +95,9 @@ class MainGame(Screen):
         if event.type == pygame.QUIT:
             quit()
         if self.player.rect.y > 750:
-            self.nextScreen = DeathScreen()
+            self.nextScreen = DeathScreen(Screen)
         elif self.player.rect.x < 0:
-            self.nextScreen = DeathScreen()
+            self.nextScreen = DeathScreen(Screen)
         # scores = open("scores.txt", "a")
         # scores.write(str(self.score))
         # scores.close()
@@ -235,8 +235,9 @@ class HowToPlay(Screen):
 
 
 class DeathScreen(Screen):
-    def __init__(self):
+    def __init__(self, score):
         super().__init__()
+        self.score = score
         pygame.mouse.set_visible(True)
 
     def handle_event(self, event):
@@ -285,3 +286,6 @@ class DeathScreen(Screen):
         text_rect = text.get_rect()
         text_rect.center = (1050, 370)
         window.blit(text, text_rect)
+
+        # score and player name
+        # print(self.score)
