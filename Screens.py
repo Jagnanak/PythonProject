@@ -33,7 +33,7 @@ class StartScreen(Screen):
         elif 290 < pos[1] < 290 + 150 and 900 < pos[0] < 1200 and event.type == pygame.MOUSEBUTTONDOWN:
             self.nextScreen = Leaderboard()
         elif 490 < pos[1] < 490 + 150 and 900 < pos[0] < 1200 and event.type == pygame.MOUSEBUTTONDOWN:
-            self.nextScreen = Tutorial()
+            self.nextScreen = HowToPlay()
 
     def update(self):
         pass
@@ -67,7 +67,7 @@ class StartScreen(Screen):
         text_rect.center = (1050, 370)
         window.blit(text, text_rect)
 
-        # tutorial button text
+        # HowToPlay screen button text
         font = pygame.font.Font('freesansbold.ttf', 40)
         text = font.render('HOW TO PLAY', True, Constants.BLACK)
         text_rect = text.get_rect()
@@ -98,9 +98,9 @@ class MainGame(Screen):
             self.nextScreen = DeathScreen()
         elif self.player.rect.x < 0:
             self.nextScreen = DeathScreen()
-        scores = open("scores.txt", "a")
-        scores.write(str(self.score))
-        scores.close()
+        # scores = open("scores.txt", "a")
+        # scores.write(str(self.score))
+        # scores.close()
         # scores = open("scores.txt", "r")
         # print(scores.read())
         # scores.close()
@@ -185,7 +185,7 @@ class Leaderboard(Screen):
         window.blit(text, text_rect)
 
 
-class Tutorial(Screen):
+class HowToPlay(Screen):
     def __init__(self):
         super().__init__()
         pygame.mouse.set_visible(True)
@@ -215,6 +215,22 @@ class Tutorial(Screen):
         text = font.render('BACK', True, Constants.WHITE)
         text_rect = text.get_rect()
         text_rect.center = (50, 40)
+        window.blit(text, text_rect)
+
+        # How to play text:
+        font = pygame.font.Font('freesansbold.ttf', 40)
+        text_rect = text.get_rect()
+        text = font.render('Use the W A S D keys to move the player', True, Constants.BLACK)
+        text_rect.center = (300, 200)
+        window.blit(text, text_rect)
+        text = font.render('Go from platform to platform to get points', True, Constants.BLACK)
+        text_rect.center = (300, 300)
+        window.blit(text, text_rect)
+        text = font.render("Avoid the red boxes,", True, Constants.BLACK)
+        text_rect.center = (300, 400)
+        window.blit(text, text_rect)
+        text = font.render("You will loose points if you touch them", True, Constants.BLACK)
+        text_rect.center = (300, 500)
         window.blit(text, text_rect)
 
 
