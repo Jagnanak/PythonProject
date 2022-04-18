@@ -98,12 +98,9 @@ class MainGame(Screen):
             self.nextScreen = DeathScreen(self.score)
         elif self.player.rect.x < 0:
             self.nextScreen = DeathScreen(self.score)
-        # scores = open("scores.txt", "a")
-        # scores.write(str(self.score))
-        # scores.close()
-        # scores = open("scores.txt", "r")
-        # print(scores.read())
-        # scores.close()
+        f = open("Scores.txt", "w")
+        f.write("Now the file has more content!")
+        f.close()
 
     def update(self):
         # randomly generating the platforms
@@ -163,6 +160,7 @@ class Leaderboard(Screen):
         pos = pygame.mouse.get_pos()
         if 20 < pos[1] < 60 and 20 < pos[0] < 80 and event.type == pygame.MOUSEBUTTONDOWN:
             self.nextScreen = StartScreen()
+
 
     def update(self):
         pass
